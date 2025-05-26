@@ -16,7 +16,6 @@ def generate_session_code(models_info, output_file):
 
         f.write("#include <iostream>\n")
         f.write("#include <string>\n\n")
-        f.write("namespace quick {\nnamespace ultra {\n\n")
         
         for filename, class_name, imports, fields in models_info:
             # Генерируем специализацию метода save
@@ -36,10 +35,9 @@ def generate_session_code(models_info, output_file):
             f.write("    // Handle dependencies here (e.g., save related objects)\n")
             f.write("}\n\n")
         
-        f.write("}} // namespace quick::ultra\n")
 
 if __name__ == "__main__":
-    file_path = "build/generated/session_helper.cpp"  
+    file_path = "build/generated/session_helper.hpp"  
     content = "Hello, World!"
 
     models_info = scan_models()
